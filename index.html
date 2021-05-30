@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      html,
+      body,
+      div {
+        margin: 0;
+        padding: 0;
+        border: 0;
+        font-size: 100%;
+        font: inherit;
+        vertical-align: baseline;
+      }
+
+      .container {
+        width: 80vw;
+        margin: 0 auto;
+      }
+
+      #menu {
+        display: flex;
+        justify-content: center;
+      }
+
+      #menu > ul {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        justify-content: space-between;
+        height: 100vh;
+        align-items: center;
+      }
+
+      #menu > ul > li {
+        display: block;
+        padding: 1rem;
+      }
+
+      a {
+        text-decoration: none;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <nav id="menu">
+        <ul>
+          <li><a href="ex1.php">Gerar série númerica</a></li>
+          <li><a href="ex2.php">Gerar dados da série</a></li>
+          <li><a href="ex3.php">Analisar dados da série</a></li>
+          <li><a href="ex4.php">Gerar gráfico da série</a></li>
+        </ul>
+      </nav>
+    </div>
+  </body>
+</html>
