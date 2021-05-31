@@ -5,36 +5,17 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="assets/main.css">
     <title>Document</title>
+    <style>
+    #quantityElements~label {
+        display: block;
+        margin-top: 5px;
+    }
+    </style>
 </head>
-<style>
-.container {
-    width: 80vw;
-    margin: 0 auto;
-}
-
-.form-data {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
-#result {
-    display: block;
-    margin-top: 20px;
-    text-align: center;
-}
-
-.links {
-    text-align: center;
-    display: block;
-    margin-bottom: 3rem;
-}
-
-.links>a {
-    text-decoration: none;
-}
-</style>
 <?php 
     $written = false;
     $filename = md5(uniqid(rand(), true)) . ".json";
@@ -67,25 +48,30 @@
         <a href="index.html">Voltar para o menu</a>
     </div>
     <div class="container">
-        <form action="ex1.php" method="POST" class="form-data">
-            <label for="a1">Primeiro elemento: </label>
-            <input type="text" name="a1">
-            <label for="ratio">Razão: </label>
-            <input type="text" name="ratio">
-            <label for="quantityElements">Quantidade de elementos: </label>
-            <input type="text" name="quantityElements">
-            <label for="type">Tipo de progessão: </label>
-            <div>
-                <label for="pa">PA: </label>
-                <input type="radio" id="pa" name="type" value="pa">
-                <label for="pg">PG: </label>
-                <input type="radio" name="type" value="pg">
-            </div>
-            <button type="submit">Gerar</button>
-        </form>
-        <?php if($written) {
+        <div class="ctx-center">
+            <fieldset>
+                <form action="ex1.php" method="POST" class="form-data">
+                    <label class="label" for="a1">Primeiro elemento: </label>
+                    <input type="text" name="a1" id="a1">
+                    <label class="label" for="ratio">Razão: </label>
+                    <input type="text" name="ratio" id="ratio">
+                    <label class="label" for="quantityElements">Quantidade de elementos: </label>
+                    <input type="text" name="quantityElements" id="quantityElements">
+                    <label for="type">Tipo de progessão: </label>
+                    <div>
+                        <label for="pa">PA: </label>
+                        <input type="radio" id="pa" name="type" value="pa">
+                        <label for="pg">PG: </label>
+                        <input type="radio" name="type" value="pg">
+                    </div>
+                    <button class="btn" type="submit">Gerar</button>
+                </form>
+
+            </fieldset>
+            <?php if($written) {
             echo "<div id='result'>Arquivo gerado com nome <b>$filename</b></div>";
         }?>
+        </div>
     </div>
 </body>
 

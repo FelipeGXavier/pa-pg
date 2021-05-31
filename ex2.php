@@ -5,65 +5,18 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="assets/main.css">
     <title>Document</title>
     <style>
-    .container {
-        width: 80vw;
-        margin: 0 auto;
-    }
 
-    .ctx-center {
-        margin-top: 50px;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-    }
-
-    .btn {
-        margin-top: 10px;
-        border: none;
-        cursor: pointer;
-        color: white;
-        background-color: #28A744;
-        padding: 5px 30px 5px 30px;
-        border-radius: 3px;
-        border-bottom: 2px solid #04691a;
-    }
-
-    .form-data {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-    }
-
-    #result {
-        margin-top: 2rem;
-    }
-
-    #result>h4 {
-        text-align: center;
-    }
-
-    .label {
-        display: block;
-        margin-bottom: 15px;
-    }
-
-    .links {
-        text-align: center;
-        display: block;
-        margin-bottom: 3rem;
-    }
-
-    .links>a {
-        text-decoration: none;
-    }
     </style>
 </head>
 <?php 
         $file = isset($_FILES['sequence']) ? $_FILES['sequence'] : null;
         $data = null;
-        if($file != null || !empty($file['tmp_name'])) {
+        if($file != null && !empty($file['tmp_name'])) {
             $content = json_decode(file_get_contents($_FILES['sequence']['tmp_name']), true); 
             
             include_once 'core/statsSequence.php';
@@ -90,11 +43,13 @@
     </div>
     <div class="container">
         <div class="ctx-center">
-            <form class="form-data" method="POST" action="ex2.php" enctype="multipart/form-data">
-                <label class="label" for="sequence">Arquivo da progressão:</label>
-                <input type="file" name="sequence">
-                <button class="btn" type="submit">Enviar</button>
-            </form>
+            <fieldset>
+                <form class="form-data" method="POST" action="ex2.php" enctype="multipart/form-data">
+                    <label class="label" for="sequence">Arquivo da progressão:</label>
+                    <input type="file" name="sequence">
+                    <button class="btn" type="submit">Enviar</button>
+                </form>
+            </fieldset>
             <?php 
                 if($data != null) {
                     $firstElement = $data['firstElement'];

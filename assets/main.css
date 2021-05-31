@@ -1,0 +1,65 @@
+body {
+    font-family: "Roboto", sans-serif;
+}
+
+.container {
+    width: 80vw;
+    margin: 0 auto;
+}
+
+.ctx-center {
+    margin-top: 50px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.btn {
+    margin-top: 10px;
+    border: none;
+    cursor: pointer;
+    color: white;
+    background-color: #28a744;
+    padding: 5px 30px 5px 30px;
+    border-radius: 3px;
+    border-bottom: 2px solid #04691a;
+}
+
+.form-data {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#result {
+    margin-top: 2rem;
+}
+
+#result>h4 {
+    text-align: center;
+}
+
+.label {
+    display: block;
+    margin-bottom: 15px;
+}
+
+.links {
+    text-align: center;
+    display: block;
+    margin-bottom: 3rem;
+}
+
+.links>a {
+    text-decoration: none;
+}
+
+.links {
+    text-align: center;
+    display: block;
+    margin-bottom: 3rem;
+}
+
+.links>a {
+    text-decoration: none;
+}
