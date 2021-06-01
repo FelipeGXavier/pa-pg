@@ -51,7 +51,8 @@ function getRatioPg($elements) {
 }
 
 function getMostCommonElement($arr) {
-    $values = array_count_values($arr);
+    $tmp = array_map('strval', $arr);
+    $values = array_count_values($tmp);
     arsort($values);
     $firstKey = array_keys($values)[0];
     $result = ['element' => $firstKey, 'count' => $values[$firstKey]];

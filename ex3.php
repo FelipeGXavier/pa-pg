@@ -12,6 +12,7 @@
     <title>Document</title>
 </head>
 <?php 
+        $result = [];
         $file = isset($_FILES['sequence']) ? $_FILES['sequence'] : null;
         $data = null;
         if($file != null && !empty($file['tmp_name'])) {
@@ -39,7 +40,7 @@
                 </form>
             </fieldset>
             <?php 
-                if($result != null) {
+                if($result != null && count($result) > 0) {
                     $type = $result['type'];
                     $change = $result['percent'];
                     echo '<div id="result">';
