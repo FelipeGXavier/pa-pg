@@ -2,7 +2,6 @@
 
 header('Content-type: application/json');
 
-
 $file = isset($_FILES['sequence']) ? $_FILES['sequence'] : null;
 
 if($file != null && !empty($_FILES['sequence']['tmp_name'])) {
@@ -12,7 +11,6 @@ if($file != null && !empty($_FILES['sequence']['tmp_name'])) {
         return [$el, $el];
     }, $progression);
     echo json_encode($result);
-    exit();
+}else{
+    echo json_encode([]);
 }
-
-echo json_encode([]);

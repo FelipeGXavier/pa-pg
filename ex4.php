@@ -11,6 +11,29 @@
     <link rel="stylesheet" href="assets/main.css">
     <title>Document</title>
 </head>
+<?php 
+        $file = isset($_FILES['sequence']) ? $_FILES['sequence'] : null;
+        $data = null;
+        if($file != null && !empty($file['tmp_name'])) {
+            $content = json_decode(file_get_contents($_FILES['sequence']['tmp_name']), true); 
+            
+            include_once 'core/statsSequence.php';
+
+            $elements = $content['sequence'];
+            $firstElement = $content['firstElement'];
+            $ratio = $content['ratio'];
+            $type = $content['type'];
+            $data = [
+                'firstElement' => $content['firstElement'],
+                'ratio' => $content['ratio'],
+                'type' => $type == 'pa' ? 'Progressão Artitmética' : 'Progressão Geométrica',
+                'elements' => $elements,
+                'sum' => sum($elements, $type),
+                'average' => average($elements, $type),
+                'median' => median($elements)
+            ];
+        }
+    ?>
 
 <body>
     <div class="links">
@@ -19,7 +42,7 @@
     <div class="container">
         <div class="ctx-center">
             <fieldset>
-                <form class="form-data" action="POST" enctype="multipart/form-data">
+                <form class="form-data" method="POST" enctype="multipart/form-data">
                     <label class="label" for="sequence">Arquivo de entrada: </label>
                     <input name="sequence" id="sequence" type="file">
                     <button class="btn" id="btn-chart">Gerar</button>

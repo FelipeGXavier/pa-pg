@@ -13,7 +13,7 @@
 
     </style>
 </head>
-<?php 
+    <?php 
         $file = isset($_FILES['sequence']) ? $_FILES['sequence'] : null;
         $data = null;
         if($file != null && !empty($file['tmp_name'])) {
